@@ -11017,22 +11017,43 @@ body {
   padding: 0.75rem;
   flex-shrink: 0;
 }
+.text-title {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
 
+.text-subtitle {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.text-container {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+}
+.text-quote {
+  font-size: 1.1em;
+  font-weight: 400;
+  font-style: italic;
+}
 .sb-sidenav-dark {
-  background-color: #212529;
-  color: rgba(255, 255, 255, 0.5);
+  background-color: #6da469;
+  color: white;
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(255, 255, 255, 0.25);
+  color: white;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
-  color: rgba(255, 255, 255, 0.5);
+  color: white;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-nav-link-icon {
-  color: rgba(255, 255, 255, 0.25);
+  color: white;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .sb-sidenav-collapse-arrow {
-  color: rgba(255, 255, 255, 0.25);
+  color: white;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
   color: #fff;

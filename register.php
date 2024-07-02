@@ -1,10 +1,38 @@
 <?php
-// Include header file
-include('header.php');
+session_start();
 
-// Include database connection file
-include('dbconnection.php');
+
+// Rest of your PHP logic
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Sign Up</title>
+
+    <!-- External Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+
+    <!-- Font Awesome Library -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+ <div id="layoutSidenav">
+        <?php
+        // Include sidebar
+        include('sidebar.php');
+        ?>
+        <div id="layoutSidenav_content">
+            <main>
+            
 
 <div class="container mt-4">
     <!-- Breadcrumbs -->
@@ -22,53 +50,39 @@ include('dbconnection.php');
                     User Registration
                 </div>
                 <div class="card-body">
+                <?php
+                if (isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']); // Clear the message after displaying
+                }
+                ?>
                     <!-- Add User Form -->
-                    <form method="POST">
+                    <form method="POST" action="register-add.php">
                         <!-- Full Name Field -->
                         <div class="form-group mb-3">
-                            <label for="studentName">Full Name</label>
-                            <input type="text" required class="form-control" id="studentName" name="studentName">
+                            <label for="name">Full Name</label>
+                            <input type="text" required class="form-control" id="name" name="name">
                         </div>
-                        <!-- Student ID Field -->
-                        <div class="form-group mb-3">
-                            <label for="studentID">Student ID</label>
-                            <input type="text" class="form-control" id="studentID" name="studentID">
-                        </div>
+                      
                         <!-- Phone Number Field -->
                         <div class="form-group mb-3">
-                            <label for="studentPhoneNum">Phone Number</label>
-                            <input type="tel" class="form-control" id="studentPhoneNum" name="studentPhoneNum">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
                         </div>
-                        <!-- Address Field -->
-                        <div class="form-group mb-3">
-                            <label for="studentAddress">Address</label>
-                            <input type="text" class="form-control" id="studentAddress" name="studentAddress">
-                        </div>
-                        <!-- Level of Study Field -->
-                        <div class="form-group mb-3">
-                            <label for="studentType">Level Of Study</label>
-                            <select class="form-control" id="studentType" name="studentType" required>
-                                <option value="Undergraduate">Undergraduate</option>
-                                <option value="Postgraduate">Postgraduate</option>
-                            </select>
-                        </div>
-                        <!-- Year of Study Field -->
-                        <div class="form-group mb-3">
-                            <label for="studentYear">Year Of Study</label>
-                            <input type="number" class="form-control" id="studentYear" name="studentYear">
-                        </div>
+                       
+                       
                         <!-- Email Field -->
                         <div class="form-group mb-3">
-                            <label for="studentEmail">Email</label>
-                            <input type="email" class="form-control" id="studentEmail" name="studentEmail">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
                         <!-- Password Field -->
                         <div class="form-group mb-3">
-                            <label for="studentPassword">Password</label>
-                            <input type="password" class="form-control" id="studentPassword" name="studentPassword">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
                         </div>
                         <!-- Submit and Reset Buttons -->
-                        <button type="submit" name="add_user" class="btn btn-primary">Add User</button>
+                        <button type="submit" name="add_user" class="btn btn-primary">Register</button>
                         <button type="reset" class="btn btn-light">Reset</button>
                     </form>
                     <!-- End Form -->
@@ -79,7 +93,11 @@ include('dbconnection.php');
 </div>
 
 <hr>
-
+        <div class="text-container">
+                    <div class="text-title">Tunaikan Kewajipan Zakat Anda</div>
+                    <div class="text-subtitle">"Dan dirikanlah kamu akan sembahyang dan keluarkanlah zakat, dan rukuklah kamu semua (berjemaah) bersama-sama orang-orang yang rukuk."</div>
+                    <div class="text-quote">Al-Baqarah: 43</div>
+                </div>
 <?php
 // Include footer and scripts
 include('footer.php');
