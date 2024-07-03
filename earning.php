@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Initialize cart if not set or is unset
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
 // Perform calculations
 if (isset($_POST['calculate'])) {
     // Retrieve form data
@@ -25,8 +31,13 @@ if (isset($_POST['calculate'])) {
 
     // Store result in session for display on next page
     $_SESSION['calculation_result'] = $result;
+
+    // Redirect to payment page
+    header('Location: earning.php');
+    exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,9 +208,12 @@ if (isset($_POST['calculate'])) {
                                                     id="parents" name="parents">
                                             </div>
 
-                                            <!-- self study -->
+                                            <!-- Self study -->
                                             <div class="form-group mb-3">
                                                 <label for="parents">self study expenses</label>
+                                                RM<input type="number" step="0.01" required class="form-control"
+                                                    id="selfStudy" name="selfStudy">
+                                                <label for="selfStudy">Self Study Expenses</label>
                                                 RM<input type="number" step="0.01" required class="form-control"
                                                     id="selfStudy" name="selfStudy">
                                             </div>
@@ -225,7 +239,16 @@ if (isset($_POST['calculate'])) {
                                         <p>Total zakat of earning you have to pay: RM<?php
                                         echo isset($_SESSION['calculation_result']) ? $_SESSION['calculation_result'] : '';
                                         unset($_SESSION['calculation_result']); // This line forgets the session after displaying it
+                                        echo isset($_SESSION['calculation_result']) ? $_SESSION['calculation_result'] : '';
                                         ?></p>
+
+                                        <?php if (isset($_SESSION['calculation_result'])): ?>
+                                            <form method="POST" action="zakatPayment.php">
+                                                <button type="submit" name="add_to_cart" class="btn btn-success">Pay
+                                                    Now</button>
+                                            </form>
+                                            <?php unset($_SESSION['calculation_result']); ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
