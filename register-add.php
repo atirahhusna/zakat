@@ -31,6 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_user'])) {
 
     if ($stmt->execute()) {
         $_SESSION['message'] = '<div class="alert alert-success" role="alert">Registration successful!</div>';
+        // After successful registration, store the user's name in the session
+        $_SESSION['name'] = $name; // $name should be the variable holding the user's name from the registration form
         header("Location: register.php");
         exit();
     } else {

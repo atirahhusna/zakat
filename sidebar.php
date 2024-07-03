@@ -11,13 +11,20 @@
                 </a>
                 
                 <!-- Zakat calculator -->
-                <a class="nav-link" href="calculator.php">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
                     Zakat calculator
                 </a>
+                <div class="collapse" id="collapseUser" aria-labelledby="headingUser" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="fitrah.php">Zakat Fitrah</a>
+                        <a class="nav-link" href="earning.php">Zakat of Earning</a>
+                    </nav>
+                </div>
 
                 <!-- Zakat payment -->
-                <a class="nav-link" href="payment.php">
+                <a href="<?php echo isset($_SESSION['userID']) ? 'zakat-pay.php' : 'login.php'; ?>" class="nav-link">
+
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-wallet"></i></div>
                     Zakat Payment
                 </a>

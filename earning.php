@@ -1,6 +1,18 @@
 <?php
 session_start();
-// Rest of your PHP logic
+// Perform calculations
+if(isset($_POST['calculate'])) {
+    // Retrieve form data
+    $price = $_POST['price'];
+    $number = $_POST['number'];
+
+    // Perform your calculation here
+    // Example calculation (adjust as per your actual logic)
+    $result = $price * $number;
+
+    // Store result in session for display on next page
+    $_SESSION['calculation_result'] = $result;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,61 +48,64 @@ session_start();
     <!-- Breadcrumbs -->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Users</a>
+            <a href="#">zakat calculator</a>
         </li>
-        <li class="breadcrumb-item active">User Registration</li>
+        <li class="breadcrumb-item active">Zakat fitrah</li>
     </ol>
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    User Registration
+                   Zakat fitrah
                 </div>
                 <div class="card-body">
-                <?php
-                if (isset($_SESSION['message'])) {
-                    echo $_SESSION['message'];
-                    unset($_SESSION['message']); // Clear the message after displaying
-                }
-                ?>
+               
                     <!-- Add User Form -->
-                    <form method="POST" action="register-add.php">
-                        <!-- Full Name Field -->
-                        <div class="form-group mb-3">
-                            <label for="name">Full Name</label>
-                            <input type="text" required class="form-control" id="name" name="name">
-                        </div>
+                    <form method="POST" action="fitrah.php">
+                       <!-- Price Rate of Rice Field -->
+                     <div class="form-group mb-3">
+                         <label for="price">Price Rate of Rice,</label>
+                         RM<input type="number" step="0.01" required class="form-control" id="price" name="price" placeholder="Enter price rate (e.g., 10.50)">
+                    </div>
                       
                         <!-- Phone Number Field -->
                         <div class="form-group mb-3">
-                            <label for="phoneNumber">Phone Number</label>
-                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber">
+                            <label for="number"> Number of dependents</label>
+                            <input type="number" class="form-control" id="number" name="number">
                         </div>
                        
-                       
-                        <!-- Email Field -->
-                        <div class="form-group mb-3">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <!-- Password Field -->
-                        <div class="form-group mb-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
                         <!-- Submit and Reset Buttons -->
-                        <button type="submit" name="add_user" class="btn btn-primary">Register</button>
+                        <button type="submit" name="calculate" class="btn btn-primary">calculate</button>
                         <button type="reset" class="btn btn-light">Reset</button>
                     </form>
                     <!-- End Form -->
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="container mt-4">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                Result
+                                </div>
+                                <div class="card-body">
+                                  <p>Total zakat fitrah you have to pay: RM<?php
+                                     echo isset($_SESSION['calculation_result']) ? $_SESSION['calculation_result'] : '';
+                                     unset($_SESSION['calculation_result']); // This line forgets the session after displaying it
+                                   ?></p>
+</div>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
 <hr>
+
         <div class="text-container">
                     <div class="text-title">Tunaikan Kewajipan Zakat Anda</div>
                     <div class="text-subtitle">"Dan dirikanlah kamu akan sembahyang dan keluarkanlah zakat, dan rukuklah kamu semua (berjemaah) bersama-sama orang-orang yang rukuk."</div>
