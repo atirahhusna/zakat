@@ -11,6 +11,11 @@ if (!isset($_SESSION['userID'])) {
 }
 $userID = $_SESSION['userID'];
 
+if (isset($_POST['add_to_cart'])) {
+    $total_amount = isset($_POST['total_amount']) ? $_POST['total_amount'] : 0; // Retrieve total amount from form
+    // Process further with cart addition logic
+}
+
 ?>
 
 <div class="container mt-4">
