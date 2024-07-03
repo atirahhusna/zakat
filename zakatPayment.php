@@ -98,42 +98,49 @@ if (isset($_POST['add_to_cart'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $query = "SELECT receiptNumber, paymentDate, zakatType, paymentMethod, paymentAmount FROM zakatPayment WHERE userID = ? ORDER BY paymentDate DESC LIMIT 1000";
-                                $stmt = $conn->prepare($query);
-                                
-                                if (!$stmt) {
-                                    die('Error preparing statement: ' . $conn->error);
-                                }
+                            <?php
+$query = "SELECT receiptNumber, paymentDate, zakatType, paymentMethod, paymentAmount FROM zakatPayment WHERE userID = ? ORDER BY paymentDate DESC LIMIT 1000";
+$stmt = $conn->prepare($query);
 
-                                $stmt->bind_param("i", $userID);
-                                if (!$stmt->execute()) {
-                                    die('Error executing statement: ' . $stmt->error);
-                                }
+if (!$stmt) {
+    die('Error preparing statement: ' . $conn->error);
+}
 
-                                $result = $stmt->get_result();
+$stmt->bind_param("i", $userID);
+if (!$stmt->execute()) {
+    die('Error executing statement: ' . $stmt->error);
+}
 
-                                if ($result->num_rows > 0) {
-                                    // Display fetched records
-                                    $count = 1;
-                                    while ($row = $result->fetch_assoc()) {
-                                        ?>
-                                        <tr>
-                                            <td><?php echo $count; ?></td>
-                                            <td><?php echo htmlspecialchars($row['receiptNumber']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['paymentDate']); ?></td>
-                                            <td>RM<?php echo htmlspecialchars($row['paymentAmount']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['paymentMethod']); ?></td>
-                                            <td><?php echo htmlspecialchars($row['zakatType']); ?></td>
-                                        </tr>
-                                        <?php
-                                        $count++;
-                                    }
-                                } else {
-                                    // No records found
-                                    echo "<tr><td colspan='6'>No payment records found.</td></tr>";
-                                }
-                                ?>
+$result = $stmt->get_result();
+
+$totalPaymentAmount = 0; // Initialize total payment amount
+
+if ($result->num_rows > 0) {
+    // Display fetched records
+    $count = 1;
+    while ($row = $result->fetch_assoc()) {
+        ?>
+        <tr>
+            <td><?php echo $count; ?></td>
+            <td><?php echo htmlspecialchars($row['receiptNumber']); ?></td>
+            <td><?php echo htmlspecialchars($row['paymentDate']); ?></td>
+            <td>RM<?php echo htmlspecialchars($row['paymentAmount']); ?></td>
+            <td><?php echo htmlspecialchars($row['paymentMethod']); ?></td>
+            <td><?php echo htmlspecialchars($row['zakatType']); ?></td>
+        </tr>
+        <?php
+        $totalPaymentAmount += $row['paymentAmount']; // Accumulate payment amount
+        $count++;
+    }
+} else {
+    // No records found
+    echo "<tr><td colspan='6'>No payment records found.</td></tr>";
+}
+
+// Display total payment amount
+echo "<tr><td colspan='5'><b>Total Payment Amount:</b></td><td colspan='3'><b>RM" . number_format($totalPaymentAmount, 2) . "</b></td></tr>";
+?>
+
                             </tbody>
                         </table>
                     </div>
