@@ -1,10 +1,10 @@
 <?php
 session_start();
-include("dbconnection.php");
+include ("dbconnection.php");
 
 $error = "";
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -46,15 +46,18 @@ if(isset($_POST['submit'])) {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin-top: -50px; /* Adjust as needed */
+            margin-top: -50px;
+            /* Adjust as needed */
         }
 
         body {
-            background-image: url('logo2.png'); /* Add your image URL here */
+            background-image: url('logo2.png');
+            /* Add your image URL here */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .login-container {
             background: #ffffff;
             padding: 40px;
@@ -63,27 +66,33 @@ if(isset($_POST['submit'])) {
             max-width: 500px;
             width: 100%;
             text-align: center;
-            margin-top: 20px; /* Adjust as needed */
+            margin-top: 20px;
+            /* Adjust as needed */
         }
+
         .login-title {
-            font-family: 'Arial', sans-serif; 
-            font-size: 30px; 
-            font-weight: bold; 
+            font-family: 'Arial', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
             color: #333;
             margin-bottom: 20px;
             text-align: center;
         }
+
         .logo {
             max-width: 300px;
             margin-bottom: 20px;
-            margin-top: -20px; /* Adjust as needed */
+            margin-top: -20px;
+            /* Adjust as needed */
         }
+
         /* Set text alignment to left for labels */
         .login-container label {
             text-align: left;
             display: block;
             margin-bottom: 5px;
         }
+
         .error-message {
             color: red;
             margin-bottom: 15px;
@@ -93,41 +102,43 @@ if(isset($_POST['submit'])) {
 
 <body class="bg-light">
 
-<div class="center-container">
-  
-    <div>
-        <div class="login-container">
-            <h1 class="login-title"> LOGIN</h1>
-            <?php
-            if ($error != "") {
-                echo "<div class='error-message'>$error</div>";
-            }
-            ?>
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
-                </div>
-                <div class="form-group text-center">
-                    <a href="homepage.php">Home page</a> | <a href="register.php">Don't have an account? Sign up here</a>
-                </div>
-            </form>
+    <div class="center-container">
+
+        <div>
+            <div class="login-container">
+                <h1 class="login-title"> LOGIN</h1>
+                <?php
+                if ($error != "") {
+                    echo "<div class='error-message'>$error</div>";
+                }
+                ?>
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="homepage.php">Home page</a> | <a href="register.php">Don't have an account? Sign up
+                            here</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
 
 
@@ -145,15 +156,18 @@ if(isset($_POST['submit'])) {
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin-top: -50px; /* Adjust as needed */
+            margin-top: -50px;
+            /* Adjust as needed */
         }
 
         body {
-            background-image: url('logo2.png'); /* Add your image URL here */
+            background-image: url('logo2.png');
+            /* Add your image URL here */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
+
         .login-container {
             background: #ffffff;
             padding: 40px;
@@ -162,27 +176,33 @@ if(isset($_POST['submit'])) {
             max-width: 500px;
             width: 100%;
             text-align: center;
-            margin-top: 20px; /* Adjust as needed */
+            margin-top: 20px;
+            /* Adjust as needed */
         }
+
         .login-title {
-            font-family: 'Arial', sans-serif; 
-            font-size: 30px; 
-            font-weight: bold; 
+            font-family: 'Arial', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
             color: #333;
             margin-bottom: 20px;
             text-align: center;
         }
+
         .logo {
             max-width: 300px;
             margin-bottom: 20px;
-            margin-top: -20px; /* Adjust as needed */
+            margin-top: -20px;
+            /* Adjust as needed */
         }
+
         /* Set text alignment to left for labels */
         .login-container label {
             text-align: left;
             display: block;
             margin-bottom: 5px;
         }
+
         .error-message {
             color: red;
             margin-bottom: 15px;
@@ -192,39 +212,41 @@ if(isset($_POST['submit'])) {
 
 <body class="bg-light">
 
-<div class="center-container">
-  
-    <div>
-        <div class="login-container">
-            <h1 class="login-title"> LOGIN</h1>
-            <?php
-            if ($error != "") {
-                echo "<div class='error-message'>$error</div>";
-            }
-            ?>
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
-                </div>
-                <div class="form-group text-center">
-                    <a href="homepage.php">Home page</a> | <a href="register.php">Don't have an account? Sign up here</a>
-                </div>
-            </form>
+    <div class="center-container">
+
+        <div>
+            <div class="login-container">
+                <h1 class="login-title"> LOGIN</h1>
+                <?php
+                if ($error != "") {
+                    echo "<div class='error-message'>$error</div>";
+                }
+                ?>
+                <form method="post" action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-block">Login</button>
+                    </div>
+                    <div class="form-group text-center">
+                        <a href="homepage.php">Home page</a> | <a href="register.php">Don't have an account? Sign up
+                            here</a>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>

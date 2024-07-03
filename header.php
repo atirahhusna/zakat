@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,19 +15,19 @@
 
     <!-- Font Awesome Library -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    
+
 </head>
+
 <body class="sb-nav-fixed">
     <?php
     // Include top navigation bar
-    include('navbar-top.php');
+    include ('navbar-top.php');
     ?>
     <div id="layoutSidenav">
         <?php
         // Include sidebar
-        include('sidebar.php');
+        include ('sidebar.php');
         ?>
         <div id="layoutSidenav_content">
             <main>
                 <!--  main content goes here -->
-

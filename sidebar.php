@@ -9,13 +9,15 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-table-columns"></i></div>
                     Homepage
                 </a>
-                
+
                 <!-- Zakat calculator -->
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseUser">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser"
+                    aria-expanded="false" aria-controls="collapseUser">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-calculator"></i></div>
                     Zakat calculator
                 </a>
-                <div class="collapse" id="collapseUser" aria-labelledby="headingUser" data-bs-parent="#sidenavAccordion">
+                <div class="collapse" id="collapseUser" aria-labelledby="headingUser"
+                    data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="fitrah.php">Zakat Fitrah</a>
                         <a class="nav-link" href="earning.php">Zakat of Earning</a>
@@ -34,7 +36,7 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-sign-in-alt"></i></div>
                     Login
                 </a>
-                
+
             </div>
         </div>
     </nav>
