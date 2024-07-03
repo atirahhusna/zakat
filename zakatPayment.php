@@ -62,8 +62,6 @@ if (isset($_POST['add_to_cart'])) {
                                 <option value="">Select Zakat Type</option>
                                 <option value="Zakat al-Mal">Zakat al-Mal</option>
                                 <option value="Zakat al-Fitr">Zakat al-Fitr</option>
-                                <option value="Zakat al-Tijara">Zakat al-Tijara</option>
-                                <option value="Zakat al-Kasid">Zakat al-Kasid</option>
                             </select>
                         </div>
                         <!-- Submit and Reset Buttons -->
