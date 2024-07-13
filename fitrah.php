@@ -116,4 +116,5 @@ if (isset($_POST['calculate'])) {
         </div>
     </div>
 </body>
+
 </html>
