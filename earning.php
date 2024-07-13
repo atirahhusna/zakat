@@ -210,9 +210,6 @@ if (isset($_POST['calculate'])) {
 
                                             <!-- Self study -->
                                             <div class="form-group mb-3">
-                                                <label for="parents">self study expenses</label>
-                                                RM<input type="number" step="0.01" required class="form-control"
-                                                    id="selfStudy" name="selfStudy">
                                                 <label for="selfStudy">Self Study Expenses</label>
                                                 RM<input type="number" step="0.01" required class="form-control"
                                                     id="selfStudy" name="selfStudy">
@@ -236,29 +233,25 @@ if (isset($_POST['calculate'])) {
                                 <div class="card">
                                     <div class="card-header">Result</div>
                                     <div class="card-body">
-                                        <p>Total zakat of earning you have to pay: RM<?php
-                                        echo isset($_SESSION['calculation_result']) ? $_SESSION['calculation_result'] : '';
-                                        unset($_SESSION['calculation_result']); // This line forgets the session after displaying it
-                                        echo isset($_SESSION['calculation_result']) ? $_SESSION['calculation_result'] : '';
-                                        ?></p>
-
                                         <?php if (isset($_SESSION['calculation_result'])): ?>
+                                            <p>Total zakat of earning you have to pay: RM<?php echo $_SESSION['calculation_result']; ?></p>
                                             <form method="POST" action="zakatPayment.php">
-                                                <button type="submit" name="add_to_cart" class="btn btn-success">Pay
-                                                    Now</button>
+                                                <button type="submit" name="add_to_cart" class="btn btn-success">Pay Now</button>
                                             </form>
                                             <?php unset($_SESSION['calculation_result']); ?>
+                                        <?php else: ?>
+                                            <p>Please calculate your zakat first.</p>
                                         <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <hr>
                     <div class="text-container">
                         <div class="text-title">Tunaikan Kewajipan Zakat Anda</div>
-                        <div class="text-subtitle">"Dan dirikanlah kamu akan sembahyang dan keluarkanlah zakat, dan
-                            rukuklah kamu semua (berjemaah) bersama-sama orang-orang yang rukuk."</div>
+                        <div class="text-subtitle">"Dan dirikanlah kamu akan sembahyang dan keluarkanlah zakat, dan rukuklah kamu semua (berjemaah) bersama-sama orang-orang yang rukuk."</div>
                         <div class="text-quote">Al-Baqarah: 43</div>
                     </div>
 
