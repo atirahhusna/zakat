@@ -1,7 +1,7 @@
 <?php
 session_start();
-include ('header.php');
-include ('dbconnection.php'); // Include the database connection script
+include('header.php');
+include('dbconnection.php'); // Include the database connection script
 
 // Assuming userID is stored in session after login
 if (!isset($_SESSION['userID'])) {
@@ -34,12 +34,12 @@ if (isset($_POST['add_to_cart'])) {
                     Zakat Payment
                 </div>
                 <div class="card-body">
-                    <?php
-                    if (isset($_SESSION['message'])) {
-                        echo $_SESSION['message'];
-                        unset($_SESSION['message']); // Clear the message after displaying
-                    }
-                    ?>
+                <?php
+                if (isset($_SESSION['message'])) {
+                    echo $_SESSION['message'];
+                    unset($_SESSION['message']); // Clear the message after displaying
+                }
+                ?>
                     <!-- Add Payment Form -->
                     <form method="POST" action="zakat-pay.php">
                         <div class="form-group mb-3">
@@ -86,8 +86,7 @@ if (isset($_POST['add_to_cart'])) {
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover table-striped" id="paymentTable" width="100%"
-                            cellspacing="0">
+                        <table class="table table-bordered table-hover table-striped" id="paymentTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Number</th>
@@ -99,13 +98,6 @@ if (isset($_POST['add_to_cart'])) {
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php
-                                $query = "SELECT receiptNumber, paymentDate, zakatType, paymentMethod, paymentAmount FROM zakatPayment WHERE userID = ? ORDER BY paymentDate DESC LIMIT 1000";
-                                $stmt = $conn->prepare($query);
-
-                                if (!$stmt) {
-                                    die('Error preparing statement: ' . $conn->error);
-                                }
                             <?php
 $query = "SELECT receiptNumber, paymentDate, zakatType, paymentMethod, paymentAmount FROM zakatPayment WHERE userID = ? ORDER BY paymentDate DESC LIMIT 1000";
 $stmt = $conn->prepare($query);
@@ -163,6 +155,6 @@ echo "<tr><td colspan='5'><b>Total Payment Amount:</b></td><td colspan='3'><b>RM
 
 <?php
 // Include footer and scripts
-include ('footer.php');
-include ('scripts.php');
+include('footer.php');
+include('scripts.php');
 ?>

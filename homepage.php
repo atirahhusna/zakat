@@ -214,24 +214,6 @@
                         kamu semua (berjemaah) bersama-sama orang-orang yang rukuk."</div>
                     <div class="text-quote">Al-Baqarah: 43</div>
                 </div>
-
-                <div class="image-container">
-                    <div class="logo">
-                        <i class="fas fa-calculator fa-4x"></i> <!-- Example: Calculator icon -->
-                        <div class="logo-text">Calculator</div>
-                    </div>
-                    <div class="logo">
-                        <i class="fas fa-credit-card fa-4x"></i> <!-- Example: Payment icon -->
-                        <div class="logo-text">Payment</div>
-                    </div>
-                    <div class="logo">
-                        <i class="fas fa-book fa-4x"></i> <!-- Example: Record icon -->
-                        <div class="logo-text">Record</div>
-                    </div>
-                </div>
-
-
-
                 <!--  main content goes here -->
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
